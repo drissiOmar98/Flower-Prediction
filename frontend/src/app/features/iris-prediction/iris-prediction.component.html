@@ -1,0 +1,78 @@
+<div class="background-image"></div>
+
+<div class="container">
+  <div class="iris-prediction-container col-lg-12 col-md-12 col-sm-12 mx-auto">
+    <h2>IRIS Flower Prediction</h2>
+
+    <!-- Input form -->
+    <form #irisForm="ngForm" class="input-form">
+
+      <!-- Sepal Length -->
+      <div class="form-group">
+        <label for="sepalLength">Sepal Length:</label>
+        <input #sepalLengthInput="ngModel" id="sepalLength" type="number" [(ngModel)]="features[0]"
+               name="sepalLength" class="form-control" placeholder="Enter sepal length"
+               required min="0.1" max="10" />
+        <small *ngIf="sepalLengthInput.invalid && sepalLengthInput.dirty" class="error-message">
+          Sepal Length is required (0.1 - 10)
+        </small>
+      </div>
+
+      <!-- Sepal Width -->
+      <div class="form-group">
+        <label for="sepalWidth">Sepal Width:</label>
+        <input #sepalWidthInput="ngModel" id="sepalWidth" type="number" [(ngModel)]="features[1]"
+               name="sepalWidth" class="form-control" placeholder="Enter sepal width"
+               required min="0.1" max="10" />
+        <small *ngIf="sepalWidthInput.invalid && sepalWidthInput.dirty" class="error-message">
+          Sepal Width is required (0.1 - 10)
+        </small>
+      </div>
+
+      <!-- Petal Length -->
+      <div class="form-group">
+        <label for="petalLength">Petal Length:</label>
+        <input #petalLengthInput="ngModel" id="petalLength" type="number" [(ngModel)]="features[2]"
+               name="petalLength" class="form-control" placeholder="Enter petal length"
+               required min="0.1" max="10" />
+        <small *ngIf="petalLengthInput.invalid && petalLengthInput.dirty" class="error-message">
+          Petal Length is required (0.1 - 10)
+        </small>
+      </div>
+
+      <!-- Petal Width -->
+      <div class="form-group">
+        <label for="petalWidth">Petal Width:</label>
+        <input #petalWidthInput="ngModel" id="petalWidth" type="number" [(ngModel)]="features[3]"
+               name="petalWidth" class="form-control" placeholder="Enter petal width"
+               required min="0.1" max="10" />
+        <small *ngIf="petalWidthInput.invalid && petalWidthInput.dirty" class="error-message">
+          Petal Width is required (0.1 - 10)
+        </small>
+      </div>
+
+      <!-- Predict Button -->
+      <button (click)="onAction()" [disabled]="loadingPrediction || irisForm.invalid" class="btn btn-primary predict-button">
+        {{ loadingPrediction ? 'Loading...' : (predictionResult ? 'Reset & Predict Again' : 'Predict Iris Flower') }}
+      </button>
+
+    </form>
+
+    <!-- Loading spinner -->
+    <div *ngIf="loadingPrediction" class="loading-spinner">
+      <p>Loading...</p>
+    </div>
+
+    <!-- Prediction result -->
+    <div *ngIf="predictionResult" class="result">
+      <h3>Prediction Result:</h3>
+      <p>Predicted Species: <strong>{{ predictionResult?.prediction }}</strong></p>
+    </div>
+
+    <!-- Error message -->
+    <div *ngIf="errorMessage" class="error">
+      <h3>Error:</h3>
+      <p>{{ errorMessage }}</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,183 @@
+
+
+/* Background image styling */
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/assets/images/Iris-Meaning.jpg'); /* Correct path */
+  background-size: cover;
+  background-position: center;
+  filter: blur(1px); /* Apply blur to background image */
+  z-index: -1; /* Keep the background behind everything */
+}
+
+/* Container for content */
+.container {
+  background-color: rgba(0, 28, 128, 0.3); /* White background with opacity */
+  padding: 30px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+
+
+}
+
+/* Title header */
+h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #fff;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+/* Input form styles */
+.input-form label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.input-form input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.input-form input:focus {
+  border-color: #6a1b9a;
+  outline: none;
+}
+
+/* Predict button styling */
+.predict-button {
+  width: 100%;
+  padding: 14px;
+  background-color: #6a1b9a;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.predict-button:disabled {
+  background-color: #bbb;
+}
+
+.predict-button:hover:not(:disabled) {
+  background-color: #4a148c;
+}
+
+/* Loading spinner */
+.loading-spinner {
+  text-align: center;
+  font-size: 18px;
+  color: #999;
+  padding: 20px;
+  font-weight: bold;
+}
+
+/* Prediction result */
+.result {
+  margin-top: 20px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.result h3 {
+  color: #6a1b9a;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.result p {
+  font-size: 16px;
+  color: #333;
+  font-weight: bold;
+}
+
+/* Error message */
+.error {
+  margin-top: 20px;
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.error h3 {
+  color: #d9534f;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.error p {
+  font-size: 16px;
+}
+
+
+/* Error Message */
+.error-message {
+  color: #ff182f; /* Red error text */
+  font-size: 0.875rem;
+  margin-top: 5px;
+  font-weight: 500;
+}
+
+
+/* Reset button */
+.reset-button {
+  width: 100%;
+  padding: 14px;
+  background-color: #4a29a5; /* Match the predict button color */
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.reset-button:hover {
+  background-color: #4a148c; /* Slightly darker shade for hover effect */
+}
+
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .container {
+    width: 90%;
+    padding: 20px;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  .input-form input {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .predict-button {
+    padding: 12px;
+  }
+}
